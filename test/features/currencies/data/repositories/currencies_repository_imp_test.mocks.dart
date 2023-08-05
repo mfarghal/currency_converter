@@ -48,15 +48,15 @@ class MockCurrenciesLocalDataSource extends _i1.Mock
             _i3.Future<List<_i4.CurrencyModel>>.value(<_i4.CurrencyModel>[]),
       ) as _i3.Future<List<_i4.CurrencyModel>>);
   @override
-  _i3.Future<void> cacheCurrencies(List<_i4.CurrencyModel>? model) =>
+  _i3.Future<bool> cacheCurrencies(List<_i4.CurrencyModel>? model) =>
       (super.noSuchMethod(
         Invocation.method(
           #cacheCurrencies,
           [model],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i3.Future<bool>.value(false),
+        returnValueForMissingStub: _i3.Future<bool>.value(false),
+      ) as _i3.Future<bool>);
 }
 
 /// A class which mocks [CurrenciesRemoteDataSource].
