@@ -6,9 +6,9 @@
 import 'dart:async' as _i4;
 
 import 'package:currency_converter_demo/core/error/failure.dart' as _i5;
-import 'package:currency_converter_demo/features/currencies/domain/entities/currency_entity.dart'
+import 'package:currency_converter_demo/features/countries/domain/entities/country_entity.dart'
     as _i6;
-import 'package:currency_converter_demo/features/currencies/domain/repositories/currencies_repository.dart'
+import 'package:currency_converter_demo/features/countries/domain/repositories/countries_repository.dart'
     as _i3;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
@@ -34,37 +34,35 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
         );
 }
 
-/// A class which mocks [CurrenciesRepository].
+/// A class which mocks [CountriesRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCurrenciesRepository extends _i1.Mock
-    implements _i3.CurrenciesRepository {
+class MockCountriesRepository extends _i1.Mock
+    implements _i3.CountriesRepository {
   @override
-  _i4.Future<
-      _i2.Either<_i5.Failure,
-          List<_i6.CurrencyEntity>>> getAvailableCurrencies() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getAvailableCurrencies,
-          [],
-        ),
-        returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i6.CurrencyEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i6.CurrencyEntity>>(
-          this,
-          Invocation.method(
-            #getAvailableCurrencies,
-            [],
-          ),
-        )),
-        returnValueForMissingStub:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i6.CurrencyEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i6.CurrencyEntity>>(
-          this,
-          Invocation.method(
-            #getAvailableCurrencies,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.CurrencyEntity>>>);
+  _i4.Future<_i2.Either<_i5.Failure, List<_i6.CountryEntity>>>
+      getAvailableCountries() => (super.noSuchMethod(
+            Invocation.method(
+              #getAvailableCountries,
+              [],
+            ),
+            returnValue: _i4
+                .Future<_i2.Either<_i5.Failure, List<_i6.CountryEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i6.CountryEntity>>(
+              this,
+              Invocation.method(
+                #getAvailableCountries,
+                [],
+              ),
+            )),
+            returnValueForMissingStub: _i4
+                .Future<_i2.Either<_i5.Failure, List<_i6.CountryEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i6.CountryEntity>>(
+              this,
+              Invocation.method(
+                #getAvailableCountries,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.CountryEntity>>>);
 }

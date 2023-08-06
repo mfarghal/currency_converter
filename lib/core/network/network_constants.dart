@@ -5,6 +5,6 @@ class NetworkConstants {
 
   static const Map<String, String> headers = {
     HttpHeaders.acceptHeader: "application/json",
-    HttpHeaders.contentTypeHeader: "application/json",
+    HttpHeaders.contentTypeHeader: "application/json; charset=utf-8",
   };
 }

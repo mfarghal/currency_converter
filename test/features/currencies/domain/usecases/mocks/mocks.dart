@@ -1,7 +1,8 @@
-import 'package:currency_converter_demo/features/currencies/domain/repositories/currencies_repository.dart';
+import 'package:currency_converter_demo/features/countries/domain/repositories/countries_repository.dart';
+
 import 'package:mockito/annotations.dart';
 
 @GenerateNiceMocks([
-  MockSpec<CurrenciesRepository>(),
+  MockSpec<CountriesRepository>(),
 ])
 void main() {}

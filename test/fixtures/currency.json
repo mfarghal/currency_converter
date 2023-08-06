@@ -1,3 +1,5 @@
 {
-    "id":1
+    "currencyName": "Euro",
+    "currencySymbol": "€",
+    "id": "EUR"
 }
