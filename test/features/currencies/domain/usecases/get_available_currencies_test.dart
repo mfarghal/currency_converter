@@ -11,7 +11,7 @@ void main() {
     test('should get list of currencies when call get functions successfully',
         () async {
       // arrange
-      final List<CurrencyEntity> l = [const CurrencyEntity(1)];
+      final l = [const CurrencyEntity(1)];
 
       final mock = MockCurrenciesRepository();
       final getAvailableCurrencies = GetAvailableCurrencies(mock);
