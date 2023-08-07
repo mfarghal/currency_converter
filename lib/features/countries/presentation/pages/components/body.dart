@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:currency_converter_demo/core/constants/app/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,8 +39,15 @@ class Body extends StatelessWidget {
   Widget _list(CountriesLoaded state) => Expanded(
         child: ListView.builder(
           itemCount: state.list.length,
-          itemBuilder: (context, index) => Card(
-            child: Center(
+          itemBuilder: (context, index) => ListTile(
+            key: ValueKey(state.list[index].id),
+            leading: SizedBox(
+                width: 16,
+                height: 12,
+                child: CachedNetworkImage(
+                    imageUrl: ApplicationConstants.flagUrl(
+                        countyrId: state.list[index].id))),
+            title: Center(
               child: Text(
                 state.list[index].name,
                 style: Theme.of(context).textTheme.bodyLarge,

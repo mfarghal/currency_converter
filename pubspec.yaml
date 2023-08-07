@@ -32,6 +32,7 @@ dependencies:
 
   # local cache
   shared_preferences: ^2.2.0
+  cached_network_image: ^3.2.3
 
   # network
   http: ^1.1.0
@@ -41,6 +42,8 @@ dependencies:
   # db
   hive: ^2.2.3
   path_provider: ^2.0.15
+
+  
 
 dev_dependencies:
   flutter_test:

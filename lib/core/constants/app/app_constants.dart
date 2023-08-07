@@ -6,5 +6,5 @@ class ApplicationConstants {
   static flagUrl({
     required String countyrId,
   }) =>
-      'https://flagcdn.com/16x12/$countyrId.png';
+      'https://flagcdn.com/16x12/${countyrId.toLowerCase()}.png';
 }
