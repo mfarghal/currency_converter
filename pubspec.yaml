@@ -37,6 +37,10 @@ dependencies:
   http: ^1.1.0
   # connectivity_plus: ^4.0.2
   internet_connection_checker: ^1.0.0+1
+  
+  # db
+  hive: ^2.2.3
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -44,10 +48,13 @@ dev_dependencies:
 
   
   flutter_lints: ^2.0.0
-
-
-  mockito: ^5.4.2
   build_runner: ^2.4.6
+
+  # testing
+  mockito: ^5.4.2
+  
+  # db
+  hive_generator: ^2.0.0
 
 
 flutter:

@@ -5,10 +5,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_local_data_source.dart'
-    as _i2;
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_remote_data_source.dart'
+import 'package:currency_converter_demo/features/countries/data/datasources/remote/countries_remote_data_source.dart'
     as _i5;
+import 'package:currency_converter_demo/features/countries/data/datasources/local/countries_local_data_source.dart'
+    as _i2;
 import 'package:currency_converter_demo/features/countries/data/models/country_model.dart'
     as _i4;
 import 'package:mockito/mockito.dart' as _i1;

@@ -1,4 +1,4 @@
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_remote_data_source.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/remote/countries_remote_data_source.dart';
 import 'package:currency_converter_demo/features/countries/data/models/country_model.dart';
 import 'package:currency_converter_demo/features/countries/domain/repositories/countries_repository.dart';
 
@@ -8,30 +8,30 @@ import '../../../../core/error/exception.dart';
 import '../../../../core/error/failure.dart';
 import '../../domain/entities/country_entity.dart';
 
-import '../datasources/countries_local_data_source.dart';
+import '../datasources/local/countries_local_data_source.dart';
 
 class CountriesRepositoryImp extends CountriesRepository {
   final CountriesLocalDataSource localDataSource;
   final CountriesRemoteDataSource remoteDataSource;
 
-  CountriesRepositoryImp(this.localDataSource, this.remoteDataSource);
+  CountriesRepositoryImp({
+    required this.localDataSource,
+    required this.remoteDataSource,
+  });
 
   @override
   Future<Either<Failure, List<CountryEntity>>> getAvailableCountries() async {
-    List<CountryModel> list;
     try {
-      list = await localDataSource.getCachedCountries();
-      if (list.isNotEmpty) return Right(list);
+      List<CountryModel> list = [];
+      if (await localDataSource.isEmptyLocalStorage) {
+        list = await remoteDataSource.getCountries();
+        await localDataSource.cacheCountries(list);
+      } else {
+        list = await localDataSource.getCachedCountries();
+      }
+      return Right(list);
     } on CacheException catch (_) {
       return Left(CacheFailure());
-    } catch (_) {
-      return Left(GeneralFailure());
-    }
-
-    try {
-      list = await remoteDataSource.getCountries();
-      await localDataSource.cacheCountries(list);
-      return Right(list);
     } on ServerException catch (_) {
       return Left(ServerFailure());
     } catch (_) {

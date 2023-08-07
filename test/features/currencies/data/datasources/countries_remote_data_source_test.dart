@@ -3,8 +3,8 @@ import 'dart:io';
 
 import 'package:currency_converter_demo/core/constants/app/app_constants.dart';
 import 'package:currency_converter_demo/core/error/exception.dart';
-import 'package:currency_converter_demo/core/network/network_constants.dart';
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_remote_data_source.dart';
+import 'package:currency_converter_demo/core/init/network/network_constants.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/remote/countries_remote_data_source.dart';
 import 'package:currency_converter_demo/features/countries/data/models/country_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

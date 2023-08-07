@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  group('', () {
+  group('history item model', () {
     test('should be subclass of History Item Entity', () async {
       // arrange
       const model = HistoryItemModel(1);

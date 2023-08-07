@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:currency_converter_demo/core/error/exception.dart';
 import 'package:currency_converter_demo/core/error/failure.dart';
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_local_data_source.dart';
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_remote_data_source.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/local/countries_local_data_source.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/remote/countries_remote_data_source.dart';
 import 'package:currency_converter_demo/features/countries/data/models/country_model.dart';
 import 'package:currency_converter_demo/features/countries/data/repositories/countries_repository_impl.dart';
 
@@ -36,8 +36,10 @@ void main() {
           CountryModel.fromJson(json.decode(fixture('country.json'))),
         ];
         final remoteDataSource = MockCountriesRemoteDataSource();
-        final repository =
-            CountriesRepositoryImp(localDataSource, remoteDataSource);
+        final repository = CountriesRepositoryImp(
+          localDataSource: localDataSource,
+          remoteDataSource: remoteDataSource,
+        );
         mo
             .when(localDataSource.getCachedCountries())
             .thenAnswer((realInvocation) => Future.value(l));
@@ -55,8 +57,10 @@ void main() {
           () async {
         // arrange
         final remoteDataSource = MockCountriesRemoteDataSource();
-        final repository =
-            CountriesRepositoryImp(localDataSource, remoteDataSource);
+        final repository = CountriesRepositoryImp(
+          localDataSource: localDataSource,
+          remoteDataSource: remoteDataSource,
+        );
         mo
             .when(localDataSource.getCachedCountries())
             .thenThrow(CacheException());
@@ -84,8 +88,10 @@ void main() {
           CountryModel.fromJson(json.decode(fixture('country.json'))),
         ];
         final remoteDataSource = MockCountriesRemoteDataSource();
-        final repository =
-            CountriesRepositoryImp(localDataSource, remoteDataSource);
+        final repository = CountriesRepositoryImp(
+          localDataSource: localDataSource,
+          remoteDataSource: remoteDataSource,
+        );
         mo
             .when(remoteDataSource.getCountries())
             .thenAnswer((realInvocation) => Future.value(l));
@@ -106,8 +112,10 @@ void main() {
           CountryModel.fromJson(json.decode(fixture('country.json'))),
         ];
         final remoteDataSource = MockCountriesRemoteDataSource();
-        final repository =
-            CountriesRepositoryImp(localDataSource, remoteDataSource);
+        final repository = CountriesRepositoryImp(
+          localDataSource: localDataSource,
+          remoteDataSource: remoteDataSource,
+        );
         mo
             .when(remoteDataSource.getCountries())
             .thenAnswer((realInvocation) => Future.value(l));
@@ -124,8 +132,10 @@ void main() {
           () async {
         // arrange
         final remoteDataSource = MockCountriesRemoteDataSource();
-        final repository =
-            CountriesRepositoryImp(localDataSource, remoteDataSource);
+        final repository = CountriesRepositoryImp(
+          localDataSource: localDataSource,
+          remoteDataSource: remoteDataSource,
+        );
         mo.when(remoteDataSource.getCountries()).thenThrow(ServerException());
 
         // act

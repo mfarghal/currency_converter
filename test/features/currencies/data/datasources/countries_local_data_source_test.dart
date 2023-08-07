@@ -1,17 +1,17 @@
 import 'dart:convert';
 
 import 'package:currency_converter_demo/core/error/exception.dart';
-import 'package:currency_converter_demo/features/countries/data/datasources/countries_local_data_source.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/local/countries_local_data_source.dart';
+import 'package:currency_converter_demo/features/countries/data/datasources/local/hive/countries_hive_data_source.dart';
 import 'package:currency_converter_demo/features/countries/data/models/country_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mockito/mockito.dart' as mo;
 import '../../../../fixtures/fixture_reader.dart';
 import 'countries_local_data_source_test.mocks.dart';
 
-@GenerateNiceMocks([MockSpec<SharedPreferences>()])
+@GenerateNiceMocks([MockSpec<CountriesHiveDataSource>()])
 void main() {
   group('currencies local data soruce', () {
     group('add', () {
@@ -21,17 +21,14 @@ void main() {
         final currencies = List<CountryModel>.from(
             jsons.values.map((model) => CountryModel.fromJson(model)));
 
-        final mock = MockSharedPreferences();
+        final mock = MockCountriesHiveDataSource();
         final dataSource = CountriesLocalDataSourceImpl(mock);
 
         // act
         dataSource.cacheCountries(currencies);
 
         // assert
-        final string = json
-            .encode(currencies.map((currency) => currency.toJson()).toList());
-
-        mo.verify(mock.setString(CACHED_COUNTRIES, string));
+        mo.verify(mock.add(mo.any)).called(currencies.length);
       });
     });
     group('fetch', () {
@@ -42,18 +39,18 @@ void main() {
           final currencies = List<CountryModel>.from(
               jsons.values.map((model) => CountryModel.fromJson(model)));
 
-          final mock = MockSharedPreferences();
+          final mock = MockCountriesHiveDataSource();
           final dataSource = CountriesLocalDataSourceImpl(mock);
 
-          final string = json
-              .encode(currencies.map((currency) => currency.toJson()).toList());
-          mo.when(mock.getString(mo.any)).thenReturn(string);
+          mo
+              .when(mock.getAll())
+              .thenAnswer((realInvocation) => Future.value(currencies));
 
           // act
           final res = await dataSource.getCachedCountries();
 
           // assert
-          mo.verify(mock.getString(CACHED_COUNTRIES));
+          mo.verify(mock.getAll());
           expect(res, currencies);
         });
       });
@@ -61,9 +58,9 @@ void main() {
         test('shoudl throw cache excption when local storage is empty',
             () async {
           // arrange
-          final mock = MockSharedPreferences();
+          final mock = MockCountriesHiveDataSource();
           final dataSource = CountriesLocalDataSourceImpl(mock);
-          mo.when(mock.getString(mo.any)).thenReturn('');
+          mo.when(mock.getAll()).thenThrow(CacheException());
 
           // act
           final call = dataSource.getCachedCountries;
