@@ -8,7 +8,7 @@ sealed class ExhangeEvent extends Equatable {
 }
 
 class ConvertNumberExhangeEvent extends ExhangeEvent {
-  final double val;
+  final String val;
   final String fromCurrencyId;
   final String toCurrencyId;
 

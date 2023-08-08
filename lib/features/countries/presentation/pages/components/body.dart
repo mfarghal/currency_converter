@@ -9,20 +9,19 @@ class Body extends StatelessWidget {
   const Body({super.key});
 
   @override
-  Widget build(BuildContext context) => Expanded(
-        child: BlocBuilder<CountriesBloc, CountriesState>(
-          builder: (context, state) {
-            if (state is CountriesLoading) {
-              return _loading();
-            } else if (state is CountriesLoaded) {
-              return _list(state);
-            } else if (state is CountriesError) {
-              return _errorMessage(context);
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
-        ),
+  Widget build(BuildContext context) =>
+      BlocBuilder<CountriesBloc, CountriesState>(
+        builder: (context, state) {
+          if (state is CountriesLoading) {
+            return _loading();
+          } else if (state is CountriesLoaded) {
+            return _list(state);
+          } else if (state is CountriesError) {
+            return _errorMessage(context);
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
       );
 
   Widget _errorMessage(BuildContext context) => Center(

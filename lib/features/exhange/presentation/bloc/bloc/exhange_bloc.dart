@@ -10,16 +10,25 @@ class ExhangeBloc extends Bloc<ExhangeEvent, ExhangeState> {
   final GetConvertRate getConvertRate;
   ExhangeBloc({required this.getConvertRate}) : super(ExhangeInitial()) {
     on<ConvertNumberExhangeEvent>((event, emit) async {
-      emit(ExhangeLoading());
+      try {
+        final val = int.tryParse(event.val) ?? 0;
+        emit(ExhangeLoading());
 
-      final conversionRate = await getConvertRate(
-          const Params(toCurrencyId: 'USD', fromCurrencyId: 'PHP'));
-      conversionRate.fold(
-        (l) => emit(ExhangeError()),
-        (r) {
-          emit(ExhangeLoaded(rate: r.rate, value: event.val * r.rate));
-        },
-      );
+        final conversionRate = await getConvertRate(
+          Params(
+            toCurrencyId: event.fromCurrencyId,
+            fromCurrencyId: event.toCurrencyId,
+          ),
+        );
+        conversionRate.fold(
+          (l) => emit(ExhangeError()),
+          (r) {
+            emit(ExhangeLoaded(rate: r.rate, value: val * r.rate));
+          },
+        );
+      } catch (_) {
+        emit(ExhangeError());
+      }
     });
   }
 }
