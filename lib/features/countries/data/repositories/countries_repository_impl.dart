@@ -10,7 +10,7 @@ import '../../domain/entities/country_entity.dart';
 
 import '../datasources/local/countries_local_data_source.dart';
 
-class CountriesRepositoryImp extends CountriesRepository {
+class CountriesRepositoryImp implements CountriesRepository {
   final CountriesLocalDataSource localDataSource;
   final CountriesRemoteDataSource remoteDataSource;
 

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:currency_converter_demo/core/constants/app/app_constants.dart';
-import 'package:currency_converter_demo/core/error/exception.dart';
-import 'package:currency_converter_demo/core/init/network/network_constants.dart';
-
-import '../../models/country_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../../../../../core/constants/app/app_constants.dart';
+import '../../../../../core/error/exception.dart';
+import '../../../../../core/init/network/network_constants.dart';
+import '../../models/country_model.dart';
 
 abstract class CountriesRemoteDataSource {
   /// Get the [CountryModel] from api call

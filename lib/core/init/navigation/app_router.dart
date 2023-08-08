@@ -1,5 +1,7 @@
-import '../../../features/countries/presentation/pages/countries_page.dart';
 import 'package:flutter/material.dart';
+
+import '../../../features/countries/presentation/pages/countries_page.dart';
+import '../../../features/exhange/presentation/pages/exhange_page.dart';
 
 class AppRouter {
   AppRouter._init();
@@ -10,6 +12,8 @@ class AppRouter {
     switch (args.name) {
       case CountriesPage.routeName:
         return CountriesPage.route();
+      case ExhangePage.routeName:
+        return ExhangePage.route();
 
       default:
         return MaterialPageRoute(
