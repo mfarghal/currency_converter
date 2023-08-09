@@ -3,7 +3,7 @@ import 'package:currency_converter_demo/features/countries/domain/usecases/get_a
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/entities/country_entity.dart';
+import '../../domain/entities/country_entity.dart';
 part 'countries_event.dart';
 part 'countries_state.dart';
 

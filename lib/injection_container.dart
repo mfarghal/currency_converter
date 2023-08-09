@@ -15,7 +15,8 @@ import 'features/countries/data/datasources/remote/countries_remote_data_source.
 import 'features/countries/data/repositories/countries_repository_impl.dart';
 import 'features/countries/domain/repositories/countries_repository.dart';
 import 'features/countries/domain/usecases/get_available_countries.dart';
-import 'features/countries/presentation/bloc/bloc/countries_bloc.dart';
+
+import 'features/countries/presentation/bloc/countries_bloc.dart';
 import 'features/historical/data/repositories/history_repository.dart';
 import 'features/historical/domain/usecases/get_history_for_7_days.dart';
 import 'features/historical/presentation/bloc/bloc/history_bloc.dart';

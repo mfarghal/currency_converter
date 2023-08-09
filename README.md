@@ -31,10 +31,16 @@ The project is implementing  a clean architecture & bloc for state management so
 Starting the terminal
 ---------------------
 Change directory to project path
-then run this:
+then run this to run project:
 ```
 $ flutter run
 ```
+
+then run this to run all test:
+```
+$ flutter test
+```
+
 
 
 ## Implementation

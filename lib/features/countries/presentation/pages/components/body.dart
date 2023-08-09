@@ -3,7 +3,7 @@ import 'package:currency_converter_demo/core/constants/app/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/bloc/countries_bloc.dart';
+import '../../bloc/countries_bloc.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

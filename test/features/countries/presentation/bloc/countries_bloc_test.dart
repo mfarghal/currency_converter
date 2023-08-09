@@ -1,7 +1,8 @@
 import 'package:currency_converter_demo/core/error/failure.dart';
 import 'package:currency_converter_demo/core/usecases/usecase.dart';
 import 'package:currency_converter_demo/features/countries/domain/usecases/get_available_countries.dart';
-import 'package:currency_converter_demo/features/countries/presentation/bloc/bloc/countries_bloc.dart';
+
+import 'package:currency_converter_demo/features/countries/presentation/bloc/countries_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
