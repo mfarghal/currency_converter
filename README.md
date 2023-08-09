@@ -4,8 +4,10 @@ The project is implementing  a clean architecture & bloc for state management so
 </i>
 
 
+
 ## Table of Contents
 - [Setup](#intro)
+- [Run](#run)
 - [Modules](#modules)
 - [Implementation](#implementation)
   - [Image](#hive) 
@@ -25,10 +27,19 @@ The project is implementing  a clean architecture & bloc for state management so
    - [dartz](https://pub.dev/packages/freezed)
    - [equatable](https://pub.dev/packages/equatable)
 
+## Run
+Starting the terminal
+---------------------
+Change directory to project path
+then run this:
+```
+$ flutter run
+```
+
 
 ## Implementation
 ### Image
-provides a widget named CachedNetworkImage the image displayed with this widget will be downloaded and stored in the cache directory of the app for a period of time. It will be available for offline use without an internet connection
+provides a widget named `CachedNetworkImage` the image displayed with this widget will be downloaded and stored in the cache directory of the app for a period of time. It will be available for offline use without an internet connection
 ### Hive
 is a lightweight and blazing fast key-value database written in pure Dart.
 Hive having the idea of `boxes` (which store data).
