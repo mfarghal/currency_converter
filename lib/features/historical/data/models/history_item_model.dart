@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../../domain/entities/history_item_entity.dart';
 import 'conversion_rate_history_item_model.dart';
 
