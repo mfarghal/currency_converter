@@ -39,11 +39,13 @@ class Body extends StatelessWidget {
         itemBuilder: (context, index) => ListTile(
           key: ValueKey(state.list[index].id),
           leading: SizedBox(
-              width: 16,
-              height: 12,
-              child: CachedNetworkImage(
-                  imageUrl: ApplicationConstants.flagUrl(
-                      countyrId: state.list[index].id))),
+            width: 16,
+            height: 12,
+            child: CachedNetworkImage(
+              imageUrl:
+                  ApplicationConstants.flagUrl(countyrId: state.list[index].id),
+            ),
+          ),
           title: Text(
             state.list[index].name,
             style: Theme.of(context).textTheme.bodyLarge,

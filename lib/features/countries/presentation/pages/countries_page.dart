@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../exhange/presentation/pages/exhange_page.dart';
+import '../../../historical/presentation/pages/history_page.dart';
 import 'components/body.dart';
 
 class CountriesPage extends StatelessWidget {
@@ -25,6 +26,13 @@ class CountriesPage extends StatelessWidget {
               .headlineSmall
               ?.copyWith(fontWeight: FontWeight.w500),
         ),
+        actions: [
+          IconButton(
+            onPressed: () =>
+                Navigator.of(context).pushNamed(HistoryPage.routeName),
+            icon: const Icon(Icons.history),
+          )
+        ],
       ),
       body: const SafeArea(
         child: Body(),

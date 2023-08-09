@@ -1,14 +1,22 @@
-import 'package:currency_converter_demo/features/historical/domain/entities/history_item_entity.dart';
+import 'dart:developer';
+
+import '../../domain/entities/history_item_entity.dart';
+import 'conversion_rate_history_item_model.dart';
 
 class HistoryItemModel extends HistoryItemEntity {
-  const HistoryItemModel(super.id);
+  const HistoryItemModel(
+      {required super.to,
+      required super.from,
+      required super.conversionRateHistory});
 
   factory HistoryItemModel.fromJson(Map<String, dynamic> jsonMap) =>
       HistoryItemModel(
-        jsonMap['id'],
+        from: jsonMap['from'],
+        to: jsonMap['to'],
+        conversionRateHistory: List<ConversionRateHistoryItemModel>.from(
+          jsonMap['conversions_rate'].map(
+            (e) => ConversionRateHistoryItemModel.fromJson(e),
+          ),
+        ),
       );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-      };
 }

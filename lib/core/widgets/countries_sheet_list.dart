@@ -2,27 +2,26 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/constants/app/app_constants.dart';
-import '../../../countries/presentation/bloc/bloc/countries_bloc.dart';
+import '../constants/app/app_constants.dart';
+import '../../features/countries/presentation/bloc/bloc/countries_bloc.dart';
 
 class CountriesSheetList extends StatelessWidget {
   const CountriesSheetList({super.key});
 
   @override
-  Widget build(BuildContext context) => Expanded(
-        child: BlocBuilder<CountriesBloc, CountriesState>(
-          builder: (context, state) {
-            if (state is CountriesLoading) {
-              return _loading();
-            } else if (state is CountriesLoaded) {
-              return _list(state);
-            } else if (state is CountriesError) {
-              return _errorMessage(context);
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
-        ),
+  Widget build(BuildContext context) =>
+      BlocBuilder<CountriesBloc, CountriesState>(
+        builder: (context, state) {
+          if (state is CountriesLoading) {
+            return _loading();
+          } else if (state is CountriesLoaded) {
+            return _list(state);
+          } else if (state is CountriesError) {
+            return _errorMessage(context);
+          } else {
+            return const SizedBox.shrink();
+          }
+        },
       );
 
   Widget _errorMessage(BuildContext context) => Center(

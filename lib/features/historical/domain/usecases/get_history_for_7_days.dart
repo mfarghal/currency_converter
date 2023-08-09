@@ -12,14 +12,21 @@ class GetHistoryFor7Days extends UseCase<List<HistoryItemEntity>, Params> {
   GetHistoryFor7Days(this.repository);
   @override
   Future<Either<Failure, List<HistoryItemEntity>>> call(Params params) async =>
-      repository.getLast7Days(params.currencies);
+      repository.getHistoryForDateRange(
+          params.date, params.endDate, params.currencies);
 }
 
 class Params extends Equatable {
+  final String date;
+  final String endDate;
   final List<String> currencies;
 
   //
-  const Params(this.currencies);
+  const Params({
+    required this.date,
+    required this.endDate,
+    required this.currencies,
+  });
 
   @override
   List<Object?> get props => [currencies];
