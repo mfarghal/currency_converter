@@ -1,16 +1,37 @@
-# currency_converter_demo
+# Flutter Currency Converter Clean Architecture
+<i> In this project we use [Currency Converter Api](https://www.currencyconverterapi.com/)
+The project is implementing  a clean architecture & bloc for state management so that it’s easy to understand and easy to change as the project grows in the future and implement new technologies or packages.
+</i>
 
-A new Flutter project.
 
-## Getting Started
+## Table of Contents
+- [Setup](#intro)
+- [Modules](#modules)
+- [Implementation](#implementation)
+  - [Image](#hive) 
+  - [Hive](#hive)
+  
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Setup
+ - Flutter 3.10.5
+ - Dart 3.0.5
+ - State Management: [bloc](https://pub.dev/packages/flutter_bloc)
+ - Service Locator: [get_it](https://pub.dev/packages/get_it)
+ - Image Loader [cached_network_image](https://pub.dev/packages/cached_network_image)
+ - Local Database [hive](https://pub.dev/packages/hive)
+ - *Packages*
+   - [dartz](https://pub.dev/packages/freezed)
+   - [equatable](https://pub.dev/packages/equatable)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Implementation
+### Image
+provides a widget named CachedNetworkImage the image displayed with this widget will be downloaded and stored in the cache directory of the app for a period of time. It will be available for offline use without an internet connection
+### Hive
+is a lightweight and blazing fast key-value database written in pure Dart.
+Hive having the idea of `boxes` (which store data).
+
+Hive stores its data in boxes containing key-value sets `Hive.box`
+You can call 

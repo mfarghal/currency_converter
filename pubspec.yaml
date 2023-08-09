@@ -31,7 +31,7 @@ dependencies:
   dartz: ^0.10.1
 
   # local cache
-  shared_preferences: ^2.2.0
+  #shared_preferences: ^2.2.0
   cached_network_image: ^3.2.3
 
   # network

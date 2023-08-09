@@ -23,11 +23,11 @@ import 'countries_repository_imp_test.mocks.dart';
 )
 void main() {
   group('currencies_repository_imp', () {
-    group('local storage is empty', () {
+    group('local storage is not empty', () {
       final localDataSource = MockCountriesLocalDataSource();
       setUp(() => mo
           .when(localDataSource.isEmptyLocalStorage)
-          .thenAnswer((realInvocation) => Future.value(true)));
+          .thenAnswer((realInvocation) => Future.value(false)));
 
       test('should return locally data when the cached data is present',
           () async {
@@ -75,11 +75,11 @@ void main() {
       });
     });
 
-    group('local storage is not empty', () {
+    group('local storage is empty', () {
       final localDataSource = MockCountriesLocalDataSource();
       setUp(() => mo
           .when(localDataSource.isEmptyLocalStorage)
-          .thenAnswer((realInvocation) => Future.value(false)));
+          .thenAnswer((realInvocation) => Future.value(true)));
 
       test(
           'should return remote data when call to remote data source is success',

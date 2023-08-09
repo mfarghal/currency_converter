@@ -39,20 +39,33 @@ class _FakeEither_0<L, R> extends _i1.SmartFake implements _i2.Either<L, R> {
 /// See the documentation for Mockito's code generation for more information.
 class MockHistoryRepository extends _i1.Mock implements _i3.HistoryRepository {
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i6.HistoryItemEntity>>> getLast7Days(
-          List<String>? currencies) =>
+  _i4.Future<
+      _i2
+      .Either<_i5.Failure, List<_i6.HistoryItemEntity>>> getHistoryForDateRange(
+    String? from,
+    String? to,
+    List<String>? q,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
-          #getLast7Days,
-          [currencies],
+          #getHistoryForDateRange,
+          [
+            from,
+            to,
+            q,
+          ],
         ),
         returnValue: _i4
             .Future<_i2.Either<_i5.Failure, List<_i6.HistoryItemEntity>>>.value(
             _FakeEither_0<_i5.Failure, List<_i6.HistoryItemEntity>>(
           this,
           Invocation.method(
-            #getLast7Days,
-            [currencies],
+            #getHistoryForDateRange,
+            [
+              from,
+              to,
+              q,
+            ],
           ),
         )),
         returnValueForMissingStub: _i4
@@ -60,8 +73,12 @@ class MockHistoryRepository extends _i1.Mock implements _i3.HistoryRepository {
             _FakeEither_0<_i5.Failure, List<_i6.HistoryItemEntity>>(
           this,
           Invocation.method(
-            #getLast7Days,
-            [currencies],
+            #getHistoryForDateRange,
+            [
+              from,
+              to,
+              q,
+            ],
           ),
         )),
       ) as _i4.Future<_i2.Either<_i5.Failure, List<_i6.HistoryItemEntity>>>);
